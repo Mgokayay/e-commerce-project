@@ -3,6 +3,7 @@ import EditorsPick from "../layout/EditorsPick";
 import Header from "../components/Header";
 import BestsellerProduct from "../layout/BestsellerProduct";
 import { Carousel2 } from "../components/Carousel2";
+import ProductsInfo from "../components/ProductsInfo";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <EditorsPick />
       <BestsellerProduct />
       <Carousel2 />
+      <ProductsInfo />
     </>
   );
 };
