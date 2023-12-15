@@ -15,21 +15,21 @@ const Footer = () => {
         <div className="flex items-center gap-4 text-[#23A6F0]">
           <a
             href="https://www.facebook.com/"
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faFacebook} />
           </a>
           <a
             href="https://www.instagram.com/"
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
           <a
             href="https://twitter.com/"
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faTwitter} />
