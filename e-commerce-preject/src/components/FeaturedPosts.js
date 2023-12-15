@@ -1,9 +1,0 @@
-
-
-
-const FeaturedPosts = () => {
-
-    return (
-        
-    )
-}
