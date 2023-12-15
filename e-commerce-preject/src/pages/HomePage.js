@@ -4,6 +4,8 @@ import Header from "../components/Header";
 import BestsellerProduct from "../layout/BestsellerProduct";
 import { Carousel2 } from "../components/Carousel2";
 import ProductsInfo from "../components/ProductsInfo";
+import FeaturedPosts from "../layout/FeaturedPosts";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
@@ -14,6 +16,8 @@ const HomePage = () => {
       <BestsellerProduct />
       <Carousel2 />
       <ProductsInfo />
+      <FeaturedPosts />
+      <Footer />
     </>
   );
 };
