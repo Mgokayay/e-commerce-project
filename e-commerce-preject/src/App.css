@@ -1,0 +1,11 @@
+.container {
+  @apply max-w-[1050px] border-2;
+}
+
+.slider-2_3 {
+  @apply w-2/3;
+}
+
+.slider-1_2 {
+  @apply w-1/2;
+}

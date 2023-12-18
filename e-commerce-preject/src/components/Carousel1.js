@@ -1,5 +1,6 @@
-import { Carousel } from "@material-tailwind/react";
+import { Carousel, Button } from "@material-tailwind/react";
 import slider1 from "../assets/sliders/slider1.jpg";
+import Slide from "../components/Slide";
 
 export function Carousel1() {
   return (
@@ -19,21 +20,9 @@ export function Carousel1() {
         </div>
       )}
     >
-      <img
-        src={slider1}
-        alt="slider1"
-        className="h-screen w-full object-cover"
-      />
-      <img
-        src={slider1}
-        alt="slider1"
-        className="h-screen w-full object-cover"
-      />
-      <img
-        src={slider1}
-        alt="slider1"
-        className="h-screen w-full object-cover"
-      />
+      <Slide source={slider1} season={"Summer 2020"} w={"2/3"} />
+      <Slide source={slider1} />
+      <Slide source={slider1} />
     </Carousel>
   );
 }

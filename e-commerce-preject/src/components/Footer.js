@@ -13,25 +13,13 @@ const Footer = () => {
           Bandage
         </h2>
         <div className="flex items-center gap-4 text-[#23A6F0]">
-          <a
-            href="https://www.facebook.com/"
-            target="_self"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.facebook.com/" target="_self">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_self"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.instagram.com/" target="_self">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a
-            href="https://twitter.com/"
-            target="_self"
-            rel="noopener noreferrer"
-          >
+          <a href="https://twitter.com/" target="_self">
             <FontAwesomeIcon icon={faTwitter} />
           </a>
         </div>
