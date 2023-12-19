@@ -1,5 +1,5 @@
 .container {
-  @apply max-w-[1050px] border-2;
+  @apply max-w-[1050px];
 }
 
 .slider-2_3 {
