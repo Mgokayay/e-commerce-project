@@ -15,6 +15,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faUser, faHeart } from "@fortawesome/free-regular-svg-icons";
+import { NavLink } from "reactstrap";
 
 const Header = () => {
   return (
@@ -73,22 +74,18 @@ const Header = () => {
           <div className="flex items-center">
             <h2 className="text-[#252B42] text-2xl">Bandage</h2>
           </div>
-          <div className="flex flex-wrap gap-12 text-[#737373] text-sm">
-            <div className="flex items-center ">
-              <Link to="/shop">Shop</Link>
-            </div>
-            <div className="flex items-center">
-              <Link to="/about-page">About</Link>
-            </div>
-            <div className="flex items-center">
-              <Link to="/blog">Blog</Link>
-            </div>
-            <div className="flex items-center">
-              <Link to="/contact-page">Contact</Link>
-            </div>
-            <div className="flex items-center">
-              <Link to="/pages">Pages</Link>
-            </div>
+          <div className="flex flex-wrap gap-12 text-[#737373] items-center justify-center   text-sm">
+            <NavLink href="/">Home</NavLink>
+
+            <NavLink href="/productlist">Shop</NavLink>
+
+            <NavLink href="/about-page">About</NavLink>
+
+            <NavLink href="/blog">Blog</NavLink>
+
+            <NavLink href="/contact-page">Contact</NavLink>
+
+            <NavLink href="/pages">Pages</NavLink>
           </div>
         </div>
         <div className="w-3/12"></div>
