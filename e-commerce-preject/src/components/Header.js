@@ -20,7 +20,7 @@ import { NavLink } from "reactstrap";
 const Header = () => {
   return (
     <main className="font-bold">
-      <header className="h-[58px] px-[3%] xl:flex md:flex hidden xl:flex-wrap md:flex-wrap flex-wrap justify-between bg-[#252B42] text-white">
+      <header className="h-[58px] px-[3%] xl:flex md:flex hidden xl:flex-wrap md:flex-wrap flex-wrap justify-between bg-[#23856D] text-white">
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2">
             <FontAwesomeIcon icon={faPhone} />

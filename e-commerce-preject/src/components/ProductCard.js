@@ -27,7 +27,7 @@ const ProductCard = () => {
     img12,
   ];
   return (
-    <div className="flex items-center justify-center flex-wrap gap-12 pl-16 ">
+    <div className="flex items-center justify-center flex-wrap gap-12">
       {productImg.map((image, index) => (
         <div
           key={index}
