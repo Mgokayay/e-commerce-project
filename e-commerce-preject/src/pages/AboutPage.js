@@ -1,4 +1,5 @@
 import AboutStats from "../components/AboutPageComp/AboutStats";
+import AboutWork from "../components/AboutPageComp/AboutWork";
 import ClientAbout from "../components/AboutPageComp/ClientAbout";
 import HeaderPage from "../components/AboutPageComp/HeaderPage";
 import MeetOurTeam from "../components/AboutPageComp/MeetOurTeam";
@@ -16,6 +17,7 @@ const AboutPage = () => {
       <VideoPage />
       <MeetOurTeam />
       <ClientAbout />
+      <AboutWork />
       <Footer />
     </>
   );

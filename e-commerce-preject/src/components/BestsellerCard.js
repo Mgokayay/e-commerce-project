@@ -7,6 +7,7 @@ import best5 from "../assets/bestsellerproduct/best5.png";
 import best6 from "../assets/bestsellerproduct/best6.png";
 import best7 from "../assets/bestsellerproduct/best7.png";
 import best8 from "../assets/bestsellerproduct/best8.png";
+import { NavLink } from "reactstrap";
 
 const BestsellerCard = () => {
   const productImg = [best1, best2, best3, best4, best5, best6, best7, best8];
@@ -17,7 +18,10 @@ const BestsellerCard = () => {
           key={index}
           className="flex flex-col items-center hover:scale-110 transition duration-300"
         >
-          <img src={image} alt={`card ${index}`} />
+          <NavLink href="/productpage">
+            {" "}
+            <img src={image} alt={`card ${index}`} />{" "}
+          </NavLink>
           <h2 className="text-[#252B42] text-base leading-3 font-bold pt-8 pb-4">
             Graphic Design
           </h2>
