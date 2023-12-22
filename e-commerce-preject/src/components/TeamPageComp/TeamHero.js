@@ -6,13 +6,13 @@ import img5 from "../../assets/team/teamhero5.png";
 
 const TeamHero = () => {
   return (
-    <div className="flex gap-2  ">
+    <div className="flex gap-2">
       <img src={img1} alt="img1" className="cursor-pointer" />
-      <div className="flex flex-col gap-2 ">
+      <div className="flex flex-col gap-4">
         <img src={img2} alt="img2" className="cursor-pointer" />
         <img src={img4} alt="img4" className="cursor-pointer" />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-4">
         <img src={img3} alt="img3" className="cursor-pointer" />
         <img src={img5} alt="img5" className="cursor-pointer" />
       </div>

@@ -6,13 +6,13 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 import img1 from "../../assets/team/team1.png";
-import img2 from "../../assets/team/team2.png";
+import img2 from "../../assets/team/team2.jpg";
 import img3 from "../../assets/team/team3.png";
 import img4 from "../../assets/team/team4.png";
-import img5 from "../../assets/team/team5.png";
+import img5 from "../../assets/team/team5.jpg";
 import img6 from "../../assets/team/team6.png";
 import img7 from "../../assets/team/team7.png";
-import img8 from "../../assets/team/team8.png";
+import img8 from "../../assets/team/team8.jpg";
 import img9 from "../../assets/team/team9.png";
 
 const MeetOurTeamMain = () => {
@@ -120,7 +120,7 @@ const MeetOurTeamMain = () => {
   return (
     <div className="flex flex-col items-center pt-28 pb-[137px]">
       <h1 className="text-[#252B42] text-[40px] font-bold">Meet Our Team</h1>
-      <div className="flex justify-center  flex-wrap">
+      <div className="flex justify-center flex-wrap px-[10%] gap-x-6 gap-y-12">
         {teamMembers.map((member) => (
           <div
             key={member.id}
