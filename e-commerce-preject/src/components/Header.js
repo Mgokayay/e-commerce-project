@@ -20,7 +20,7 @@ import { NavLink } from "reactstrap";
 const Header = () => {
   return (
     <main className="font-bold">
-      <header className="h-[58px] px-[3%] xl:flex md:flex hidden xl:flex-wrap md:flex-wrap flex-wrap justify-between bg-[#23856D] text-white">
+      <header className="h-[58px] px-[3%] hidden flex-wrap justify-between xl:flex bg-[#252B42] text-white">
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2">
             <FontAwesomeIcon icon={faPhone} />
@@ -69,27 +69,33 @@ const Header = () => {
         </div>
       </header>
 
-      <nav className="h-[76px] px-[3%] flex bg-white">
-        <div className="flex flex-wrap justify-between w-5/12">
-          <div className="flex items-center">
+      <nav className="h-[500px] xl:h-[76px] px-[3%] flex bg-white justify-center xl:justify-between">
+        <div className="flex flex-wrap justify-start xl:justify-between gap-20 flex-col xl:flex-row ">
+          <div className="flex items-center pt-8 xl:pt-0">
             <h2 className="text-[#252B42] text-2xl">Bandage</h2>
           </div>
-          <div className="flex flex-wrap gap-12 text-[#737373] items-center justify-center   text-sm">
-            <NavLink href="/">Home</NavLink>
-
-            <NavLink href="/productlist">Shop</NavLink>
-
-            <NavLink href="/about-page">About</NavLink>
-
-            <NavLink href="/blog">Blog</NavLink>
-
-            <NavLink href="/contact-page">Contact</NavLink>
-
-            <NavLink href="/pages">Pages</NavLink>
+          <div className="flex flex-wrap gap-4 text-[#737373] text-3xl xl:text-sm flex-col xl:flex-row font-normal xl:font-bold">
+            <div className="flex items-center ">
+              <NavLink href="/">Home</NavLink>
+            </div>
+            <div className="flex items-center ">
+              <NavLink href="/productlist">Shop</NavLink>
+            </div>
+            <div className="flex items-center">
+              <NavLink href="/about-page">About</NavLink>
+            </div>
+            <div className="flex items-center">
+              <NavLink href="/blog">Blog</NavLink>
+            </div>
+            <div className="flex items-center">
+              <NavLink href="/contact-page">Contact</NavLink>
+            </div>
+            <div className="flex items-center">
+              <NavLink href="/pages">Pages</NavLink>
+            </div>
           </div>
         </div>
-        <div className="w-3/12"></div>
-        <div className="flex flex-wrap gap-8 w-4/12 text-[#23A6F0] items-center justify-end">
+        <div className="hidden xl:flex flex-wrap gap-8 text-[#23A6F0] items-center justify-end">
           <div className="flex gap-2">
             <Link to="/profile">
               <FontAwesomeIcon icon={faUser} />
