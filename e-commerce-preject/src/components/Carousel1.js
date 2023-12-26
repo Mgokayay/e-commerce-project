@@ -1,4 +1,4 @@
-import { Carousel, Button } from "@material-tailwind/react";
+import { Carousel } from "@material-tailwind/react";
 import slider1 from "../assets/sliders/slider1.jpg";
 import Slide from "../components/Slide";
 

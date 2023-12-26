@@ -101,9 +101,9 @@ const Header = () => {
               <FontAwesomeIcon icon={faUser} />
             </Link>
 
-            <Link to="/login">Login</Link>
+            <NavLink href="/login-page">Login</NavLink>
             <p>/</p>
-            <Link to="/signup-page">Register</Link>
+            <NavLink href="/signup-page">Register</NavLink>
           </div>
           <Link to="/search">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
