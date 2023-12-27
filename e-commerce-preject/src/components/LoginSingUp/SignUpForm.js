@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const SignUpForm = () => {
   const {
@@ -9,7 +10,7 @@ const SignUpForm = () => {
     handleSubmit,
     watch,
     setValue,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm();
   const history = useHistory();
   const [roleOptions, setRoleOptions] = useState([]);
@@ -47,14 +48,18 @@ const SignUpForm = () => {
     console.log("data", postData);
     setLoading(true);
     axios
-      .post("https://workintech-fe-ecommerce.onrender.com/signup", postData)
+      .post("https://workintech-fe-ecommerce.onrender.com/signup", {})
       .then((res) => {
         console.log("post", res.data);
         localStorage.setItem("token", res.data.token);
-        history("/");
+        toast.success(
+          "You need to click link in email to activate your account!"
+        );
+        history.go("/");
       })
       .catch((error) => {
         console.error("Post request failed:", error);
+        toast.error("Register is fail");
       })
       .finally(() => {
         setLoading(false);
@@ -107,6 +112,10 @@ const SignUpForm = () => {
                 type="text"
                 {...register("email", {
                   required: "Girilmesi zorunlu alan!",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i,
+                    message: "Try a valid email address",
+                  },
                 })}
                 placeholder=" Email"
                 className=" rounded-md h-10"
@@ -251,7 +260,7 @@ const SignUpForm = () => {
                   : "hover:animate-wiggle-more hover:animate-twice"
               }`}
               type="submit"
-              disabled={loading}
+              disabled={!isValid}
             >
               {loading ? "Submitting..." : "REGISTER"}
             </button>
