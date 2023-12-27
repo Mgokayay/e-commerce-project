@@ -8,6 +8,10 @@ import ContactPage from "./pages/ContactPage";
 import TeamPage from "./pages/TeamPage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
+import React from "react";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div>
@@ -37,6 +41,8 @@ function App() {
           <LoginPage />
         </Route>
       </Switch>
+
+      <ToastContainer />
     </div>
   );
 }
