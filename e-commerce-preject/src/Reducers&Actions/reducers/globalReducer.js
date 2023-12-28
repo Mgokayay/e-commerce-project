@@ -1,6 +1,6 @@
 import { LOGGED_IN, LOGGED_OUT } from "../actions/globalAction";
 
-const globalİnitial = {
+const globalInitial = {
   roles: {},
   categories: {},
   theme: "",
@@ -8,7 +8,7 @@ const globalİnitial = {
   loggedIn: false,
 };
 
-export const globalReducer = (state = globalİnitial, action) => {
+export const globalReducer = (state = globalInitial, action) => {
   switch (action.type) {
     case LOGGED_IN:
       return {

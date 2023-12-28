@@ -1,6 +1,6 @@
 import { PRODUCT_FETCH } from "../actions/productAction";
 
-const productİnitial = {
+const productInitial = {
   productList: [],
   totalProductCount: 0,
   pageCount: 0,
@@ -8,7 +8,7 @@ const productİnitial = {
   fetchState: "NOT_FETCHED",
 };
 
-export const productReducer = (state = productİnitial, action) => {
+export const productReducer = (state = productInitial, action) => {
   switch (action.type) {
     case PRODUCT_FETCH:
       return { ...state, productList: action.payload };
