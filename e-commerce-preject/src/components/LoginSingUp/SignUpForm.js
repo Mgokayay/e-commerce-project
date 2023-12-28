@@ -48,7 +48,7 @@ const SignUpForm = () => {
     console.log("data", postData);
     setLoading(true);
     axios
-      .post("https://workintech-fe-ecommerce.onrender.com/signup", {})
+      .post("https://workintech-fe-ecommerce.onrender.com/signup", postData)
       .then((res) => {
         console.log("post", res.data);
         localStorage.setItem("token", res.data.token);
@@ -75,6 +75,7 @@ const SignUpForm = () => {
       .get("https://workintech-fe-ecommerce.onrender.com/roles")
       .then((response) => {
         setRoleOptions(response.data);
+        setValue("role_id", response.data[2].id);
       })
       .catch((error) => {
         console.error("Role options request failed:", error);
