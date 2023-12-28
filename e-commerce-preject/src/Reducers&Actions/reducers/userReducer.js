@@ -1,3 +1,11 @@
+import {
+  CHANGE_NAME,
+  CHANGE_EMAIL,
+  CHANGE_SURNAME,
+  CHANGE_ID,
+  CHANGE_STORE,
+} from "../actions/userAction";
+
 const userİnitial = {
   name: "",
   surname: "",
