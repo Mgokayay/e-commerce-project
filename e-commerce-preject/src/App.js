@@ -8,11 +8,19 @@ import ContactPage from "./pages/ContactPage";
 import TeamPage from "./pages/TeamPage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchCategories, fetchRoles } from "./api/appApi";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchRoles());
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
   return (
     <div>
       <Switch>

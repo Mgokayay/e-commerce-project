@@ -5,7 +5,7 @@ import {
 } from "redux";
 import logger from "redux-logger";
 import { thunk } from "redux-thunk";
-import { globalReducer } from "./reducers/globalReducer";
+import globalReducer from "./reducers/globalReducer";
 import { userReducer } from "./reducers/userReducer";
 import { storeReducer } from "./reducers/storeReducer";
 import { shoppincCartReducer } from "./reducers/shoppingCartReducer";
