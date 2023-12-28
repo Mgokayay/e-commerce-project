@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRoles } from "../../api/appApi";
 
 const SignUpForm = () => {
   const {
@@ -13,7 +15,7 @@ const SignUpForm = () => {
     formState: { errors, isValid },
   } = useForm();
   const history = useHistory();
-  const [roleOptions, setRoleOptions] = useState([]);
+  const [setRoleOptions] = useState([]);
   const [loading, setLoading] = useState(false);
 
   console.log(errors);
@@ -69,18 +71,18 @@ const SignUpForm = () => {
   const handleRoleChange = (e) => {
     setValue("role_id", e.target.value);
   };
+  const roleOptions = useSelector((state) => state.general.roles);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get("https://workintech-fe-ecommerce.onrender.com/roles")
-      .then((response) => {
-        setRoleOptions(response.data);
-        setValue("role_id", response.data[2].id);
-      })
-      .catch((error) => {
-        console.error("Role options request failed:", error);
-      });
-  }, []);
+    if (roleOptions.length > 0) {
+      if (watch("role_id", false) == null) {
+        setValue("role_id", roleOptions[2].id);
+      }
+    }
+    dispatch(fetchRoles());
+  }, [roleOptions, dispatch]);
   return (
     <div>
       <div className="flex flex-col items-center py-12  bg-opacity-10">
