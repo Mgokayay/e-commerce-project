@@ -57,7 +57,7 @@ const SignUpForm = () => {
         toast.success(
           "You need to click link in email to activate your account!"
         );
-        history.go("/");
+        history.push("/");
       })
       .catch((error) => {
         console.error("Post request failed:", error);
@@ -76,13 +76,8 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (roleOptions.length > 0) {
-      if (watch("role_id", false) == null) {
-        setValue("role_id", roleOptions[2].id);
-      }
-    }
     dispatch(fetchRoles());
-  }, [roleOptions, dispatch]);
+  }, [dispatch]);
   return (
     <div>
       <div className="flex flex-col items-center py-12  bg-opacity-10">
@@ -97,7 +92,7 @@ const SignUpForm = () => {
               <input
                 type="text"
                 {...register("name", {
-                  required: "Girilmesi zorunlu alan!",
+                  required: "Geçerli bir isim girilmelidir!",
                   minLength: {
                     value: 3,
                     message: "En az 3 karakter girmelisiniz!",
@@ -114,7 +109,7 @@ const SignUpForm = () => {
               <input
                 type="text"
                 {...register("email", {
-                  required: "Girilmesi zorunlu alan!",
+                  required: "Geçeli bir e-mail girilmelidir!",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i,
                     message: "Try a valid email address",
@@ -132,7 +127,7 @@ const SignUpForm = () => {
               <input
                 type="password"
                 {...register("password", {
-                  required: "Girilmesi zorunlu alan!",
+                  required: "Parola girilmelidir!",
                   minLength: {
                     value: 8,
                     message: "En az 8 karakter girmelisiniz!",
@@ -150,7 +145,7 @@ const SignUpForm = () => {
               <input
                 type="password"
                 {...register("confirmPassword", {
-                  required: "Girilmesi zorunlu alan!",
+                  required: "Parola girilmelidir!",
                   validate: validatePasswordMatch,
                 })}
                 placeholder=" Confirm Password"
@@ -263,7 +258,6 @@ const SignUpForm = () => {
                   : "hover:animate-wiggle-more hover:animate-twice"
               }`}
               type="submit"
-              disabled={!isValid}
             >
               {loading ? "Submitting..." : "REGISTER"}
             </button>
