@@ -16,9 +16,15 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faUser, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { NavLink } from "reactstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUser } from "../Reducers&Actions/actions/userAction";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch(deleteUser());
+  };
   const user = useSelector((store) => store.user);
   return (
     <main className="font-bold">
@@ -102,6 +108,9 @@ const Header = () => {
             <div>
               <img src={user.photo} />
               {user.name}
+              <button onClick={handleLogout} className="px-2">
+                Logout
+              </button>
             </div>
           ) : (
             <div className="flex gap-2">
