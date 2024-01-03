@@ -19,7 +19,7 @@ const LoginForm = () => {
   const [loginSuccess, setLoginSuccess] = useState(false);
   const history = useHistory();
   const getGravatar = (email) => {
-    return gravatar.url(email, { s: "100", r: "x", d: "monsterid" }, true);
+    return gravatar.url(email, { s: "30", r: "x", d: "monsterid" }, true);
   };
 
   const dispatch = useDispatch();
