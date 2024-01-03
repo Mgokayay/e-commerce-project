@@ -16,8 +16,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faUser, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { NavLink } from "reactstrap";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const user = useSelector((store) => store.user);
   return (
     <main className="font-bold">
       <header className="h-[58px] px-[3%] hidden flex-wrap justify-between xl:flex bg-[#252B42] text-white">
@@ -96,15 +98,22 @@ const Header = () => {
           </div>
         </div>
         <div className="hidden xl:flex flex-wrap gap-8 text-[#23A6F0] items-center justify-end">
-          <div className="flex gap-2">
-            <Link to="/profile">
-              <FontAwesomeIcon icon={faUser} />
-            </Link>
+          {user.name ? (
+            <div>
+              <img src={user.photo} />
+              {user.name}
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <Link to="/profile">
+                <FontAwesomeIcon icon={faUser} />
+              </Link>
 
-            <NavLink href="/login-page">Login</NavLink>
-            <p>/</p>
-            <NavLink href="/signup-page">Register</NavLink>
-          </div>
+              <NavLink href="/login-page">Login</NavLink>
+              <p>/</p>
+              <NavLink href="/signup-page">Register</NavLink>
+            </div>
+          )}
           <Link to="/search">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </Link>
