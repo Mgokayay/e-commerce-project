@@ -71,7 +71,7 @@ const SignUpForm = () => {
   const handleRoleChange = (e) => {
     setValue("role_id", e.target.value);
   };
-  const roleOptions = useSelector((state) => state.general.roles);
+  const roleOptions = useSelector((state) => state.global.roles);
 
   const dispatch = useDispatch();
 
