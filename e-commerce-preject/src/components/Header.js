@@ -18,13 +18,16 @@ import { faUser, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { NavLink } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser } from "../Reducers&Actions/actions/userAction";
+import { renewAxiosInstance } from "../api/api";
 
 const Header = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     localStorage.removeItem("token");
+    renewAxiosInstance();
     dispatch(deleteUser());
   };
+
   const user = useSelector((store) => store.user);
   return (
     <main className="font-bold">
