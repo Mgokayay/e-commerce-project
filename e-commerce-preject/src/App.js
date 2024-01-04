@@ -10,7 +10,7 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchCategories, fetchRoles } from "./api/appApi";
+import { fetchCategories, fetchProducts, fetchRoles } from "./api/appApi";
 import gravatar from "gravatar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -29,6 +29,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchRoles());
     dispatch(fetchCategories());
+    dispatch(fetchProducts());
   }, [dispatch]);
   const verifyHandler = async () => {
     try {
