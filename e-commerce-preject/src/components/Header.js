@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,6 +27,30 @@ const Header = () => {
     renewAxiosInstance();
     dispatch(deleteUser());
   };
+  const categories = useSelector((state) => state.global.categories);
+
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [selectedGender, setSelectedGender] = useState(null);
+
+  const handleDropdownVisibility = (visible) => {
+    setDropdownVisible(visible);
+  };
+
+  const handleGenderSelect = (gender) => {
+    setSelectedGender(gender);
+  };
+
+  const handleCategoryClick = (category) => {
+    setDropdownVisible(false);
+    setSelectedGender(null);
+  };
+
+  const womenCategories = categories.filter((category) =>
+    category.code.startsWith("k:")
+  );
+  const menCategories = categories.filter((category) =>
+    category.code.startsWith("e:")
+  );
 
   const user = useSelector((store) => store.user);
   return (
@@ -89,8 +113,68 @@ const Header = () => {
             <div className="flex items-center ">
               <NavLink href="/">Home</NavLink>
             </div>
-            <div className="flex items-center ">
+            <div
+              className="flex items-center relative "
+              onMouseEnter={() => handleDropdownVisibility(true)}
+              onMouseLeave={() => handleDropdownVisibility(true)}
+            >
               <NavLink href="/productlist">Shop</NavLink>
+              {isDropdownVisible && (
+                <div className="flex z-50  absolute top-full left-0 mt-2 bg-white border border-gray-300 shadow-md rounded-md">
+                  <div className="relative cursor-pointer">
+                    <div
+                      onMouseEnter={() => handleGenderSelect("women")}
+                      className={`cursor-pointer py-2 px-4 hover:bg-gray-100 ${
+                        selectedGender === "women" && "bg-gray-100"
+                      }`}
+                    >
+                      Women
+                      {selectedGender === "women" && (
+                        <div className="absolute top-full left-0 mt-2 bg-white border border-gray-300 shadow-md rounded-md">
+                          <ul>
+                            {womenCategories.map((category) => (
+                              <li
+                                key={category.id}
+                                onClick={() => handleCategoryClick(category)}
+                                className="cursor-pointer py-2 px-4 hover:bg-gray-100"
+                              >
+                                {category.title}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Men */}
+                  <div className="relative cursor-pointer">
+                    <div
+                      onMouseEnter={() => handleGenderSelect("men")}
+                      className={`cursor-pointer py-2 px-4 hover:bg-gray-100 ${
+                        selectedGender === "men" && "bg-gray-100"
+                      }`}
+                    >
+                      Men
+                      {selectedGender === "men" && (
+                        <div className="absolute top-full left-0 mt-2 bg-white border border-gray-300 shadow-md rounded-md">
+                          <ul>
+                            {menCategories.map((category) => (
+                              <li
+                                key={category.id}
+                                onClick={() => handleCategoryClick(category)}
+                                className="cursor-pointer py-2 px-4 hover:bg-gray-100"
+                              >
+                                {category.title}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
             <div className="flex items-center">
               <NavLink href="/about-page">About</NavLink>
@@ -109,7 +193,7 @@ const Header = () => {
         <div className="hidden xl:flex flex-wrap gap-8 text-[#23A6F0] items-center justify-end">
           {user.name ? (
             <div>
-              <img src={user.photo} />
+              <img src={user.photo} alt="" />
               {user.name}
               <button onClick={handleLogout} className="px-2">
                 Logout
