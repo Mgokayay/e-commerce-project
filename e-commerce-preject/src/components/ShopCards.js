@@ -15,7 +15,7 @@ const ShopCards = () => {
           <img
             src={category.img}
             alt={`card ${index}`}
-            className="cursor-pointer w-48 h-64 hover:scale-105 duration-200 transition opacity-100 hover:opacity-60"
+            className="cursor-pointer w-52 h-64 hover:scale-105 duration-200 transition opacity-100 hover:opacity-60"
           />
           <h6 className="text-2xl font-bold">{category.title}</h6>
         </a>
