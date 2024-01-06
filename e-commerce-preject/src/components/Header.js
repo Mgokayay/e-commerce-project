@@ -114,7 +114,7 @@ const Header = () => {
               <NavLink href="/">Home</NavLink>
             </div>
             <div
-              className="flex items-center relative "
+              className="flex items-center relative"
               onMouseEnter={() => handleDropdownVisibility(true)}
               onMouseLeave={() => handleDropdownVisibility(true)}
             >
