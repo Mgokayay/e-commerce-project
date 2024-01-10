@@ -11,7 +11,7 @@ const productInitial = {
 export const productReducer = (state = productInitial, action) => {
   switch (action.type) {
     case PRODUCT_FETCH:
-      return { ...state, productList: action.payload };
+      return { ...state, productList: action.payload.products };
     default:
       return state;
   }
