@@ -27,3 +27,7 @@ code {
 .slider-1_2 {
   @apply w-1/2;
 }
+
+/* * {
+  border: 1px solid lime;
+} */
