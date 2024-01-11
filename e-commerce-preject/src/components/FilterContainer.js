@@ -12,7 +12,23 @@ const FilterContainer = () => {
         <img src={img1} alt="img1" />
         <img src={img2} alt="img2" />
       </div>
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-3">
+        <div class="input-group" className="flex text-center items-center ">
+          <input
+            type="search"
+            class="form-control rounded-md"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="search-addon"
+          />
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            data-mdb-ripple-init
+          >
+            search
+          </button>
+        </div>
         <div className=" flex flex-row font-normal text-sm border-light border-[#737373] rounded-md">
           <select name="filter" id="filter">
             <option value="Popularity">Popularity</option>
