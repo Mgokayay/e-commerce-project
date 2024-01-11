@@ -35,7 +35,7 @@ const BestsellerProductAbout = () => {
             </p>
             <div className="flex gap-2 pb-4">
               <p className="text-[#BDBDBD] text-sm font-bold">$16.48</p>
-              <p className="text-[#23856D] text-sm font-bold">{item.price}</p>
+              <p className="text-[#23856D] text-sm font-bold">{item.price}$</p>
             </div>
           </div>
         </div>
