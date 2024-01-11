@@ -34,9 +34,10 @@ const FilterContainer = ({ searchTerm, onFilterChange }) => {
         </div>
         <div className=" flex flex-row font-normal text-sm border-light border-[#737373] rounded-md">
           <select name="filter" id="filter">
-            <option value="Popularity">Popularity</option>
-            <option value="Most Popular">Most Popular</option>
-            <option value="Best Seller">Best Seller</option>
+            <option value="Best to Worst">Best to Worst</option>
+            <option value="Worst to Best">Worst to Best</option>
+            <option value="Highest Price">Highest Price</option>
+            <option value="Lowest Price">Lowest Price</option>
           </select>
         </div>
         <button className="text-white bg-[#23A6F0] py-[10px] px-10 rounded">
