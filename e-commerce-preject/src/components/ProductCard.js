@@ -3,9 +3,17 @@ import svg from "../assets/product-colors.svg";
 
 import { useSelector } from "react-redux";
 
-const ProductCard = () => {
+const ProductCard = ({ searchTerm }) => {
   const productList = useSelector((state) => state.products.productList);
-  const products = productList ? productList : [];
+  let products = productList ? productList : [];
+  if (searchTerm && products.length > 0) {
+    products = products.filter((p) => {
+      return (
+        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+  }
 
   return (
     <div className="flex items-center justify-center flex-wrap gap-12">
@@ -35,7 +43,7 @@ const ProductCard = () => {
               <div className="flex gap-2 pb-4">
                 <p className="text-[#BDBDBD] text-sm font-bold">$16.48</p>
                 <p className="text-[#23856D] text-sm font-bold">
-                  {product.price}
+                  ${product.price}
                 </p>
               </div>
               <img src={svg} alt="svg" className="cursor-pointer" />

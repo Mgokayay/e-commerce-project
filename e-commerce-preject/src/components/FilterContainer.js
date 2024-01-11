@@ -1,7 +1,7 @@
 import img1 from "../assets/filter-icon1.svg";
 import img2 from "../assets/filter-icon2.svg";
 
-const FilterContainer = () => {
+const FilterContainer = ({ searchTerm, onFilterChange }) => {
   return (
     <div className="flex px-[10%] py-6 items-center justify-between flex-col xl:flex-row gap-4 xl:gap-0">
       <h2 className="text-[#737373] text-sm font-bold">
@@ -15,11 +15,14 @@ const FilterContainer = () => {
       <div className="flex flex-row gap-3">
         <div class="input-group" className="flex text-center items-center ">
           <input
+            className="h-10"
             type="search"
             class="form-control rounded-md"
             placeholder="Search"
             aria-label="Search"
             aria-describedby="search-addon"
+            value={searchTerm}
+            onChange={(e) => onFilterChange(e.target.value)}
           />
           <button
             type="button"

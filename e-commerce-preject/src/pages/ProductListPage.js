@@ -6,14 +6,23 @@ import LinkContainer from "../components/LinkContainer";
 import ShopCards from "../components/ShopCards";
 import FilterContainer from "../components/FilterContainer";
 import Client from "../components/Clients";
+import { useState } from "react";
 const ProductListPage = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleFilterChange = (search) => {
+    setSearchTerm(search);
+  };
+
   return (
     <>
       <Header />
       <LinkContainer />
       <ShopCards />
-      <FilterContainer />
-      <ProductListMain />
+      <FilterContainer
+        searchTerm={searchTerm}
+        onFilterChange={handleFilterChange}
+      />
+      <ProductListMain searchTerm={searchTerm} />
       <Client />
       <Footer />
     </>
