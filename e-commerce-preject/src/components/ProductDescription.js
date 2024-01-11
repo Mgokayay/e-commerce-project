@@ -1,7 +1,8 @@
 import img1 from "../assets/about/productDescription.png";
 import img2 from "../assets/rightarrow.svg";
 
-const ProductDescription = () => {
+const ProductDescription = (data) => {
+  const product = data.product;
   return (
     <div className="flex flex-col items-center px-12 pb-28">
       <div className="flex gap-10 h-[91px] items-center">
@@ -18,7 +19,7 @@ const ProductDescription = () => {
       <div className="flex gap-12 flex-wrap justify-center">
         <div className="flex w-[332px]">
           <img
-            src={img1}
+            src={product?.images[0]?.url}
             alt="img1"
             className="cursor-pointer rounded-xl shadow-[15px_10px_0px_7px_#00000008]"
           />

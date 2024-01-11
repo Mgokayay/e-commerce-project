@@ -6,14 +6,20 @@ import ProductDescription from "../components/ProductDescription";
 import ProductPageLinkCont from "../components/ProductPageLinkCont";
 
 import ProductCards from "../components/ProductCards";
+import { useSelector } from "react-redux";
+import { useRouteMatch } from "react-router-dom";
 const ProductPage = () => {
+  const productList = useSelector((state) => state.products.productList);
+  const { path, params } = useRouteMatch();
+  const product = productList.filter((product) => product.id == params.id)[0];
+
   return (
     <>
       <Header />
-      <ProductCards />
+      <ProductCards product={product} />
       <ProductPageLinkCont />
-      <ProductDescription />
-      <BestsellerProductAbout />
+      <ProductDescription product={product} />
+      <BestsellerProductAbout product={product} />
       <Client />
       <Footer />
     </>

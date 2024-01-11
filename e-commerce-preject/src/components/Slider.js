@@ -5,11 +5,11 @@ import img2 from "../assets/kucukkoltuk.png";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-const Slider = () => {
+const Slider = (data) => {
   const [activeId, setActiveId] = useState(0);
   const container1Ref = useRef(null);
   const container2Ref = useRef(null);
-
+  const product = data.product;
   const arr = [img1, img2];
 
   const toLeft = () => {
@@ -76,7 +76,7 @@ const Slider = () => {
           className="flex overflow-hidden  md:w-[600px] md:h-[500px] gap-5 "
           ref={container1Ref}
         >
-          {arr.map((image, i) => (
+          {product?.images.map((image, i) => (
             <div
               key={i}
               className={`shrink-0  md:w-[600px] md:h-[500px] ${
@@ -84,7 +84,7 @@ const Slider = () => {
               }`}
             >
               <img
-                src={image}
+                src={image.url}
                 className="w-full h-full object-cover object-center"
               />
             </div>
@@ -95,7 +95,7 @@ const Slider = () => {
         className="w-[250px] md:w-[600px] md:h-20 flex gap-5 overflow-x-scroll "
         ref={container2Ref}
       >
-        {arr.map((image, i) => (
+        {product?.images.map((image, i) => (
           <div
             key={i}
             className={`opacity-50 shrink-0 md:w-32 ${
@@ -104,7 +104,7 @@ const Slider = () => {
             onClick={() => handleClick(i)}
           >
             <img
-              src={image}
+              src={image.url}
               className="w-full h-full object-cover object-center"
             />
           </div>

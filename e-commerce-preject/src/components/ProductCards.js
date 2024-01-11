@@ -11,7 +11,8 @@ import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
 import color from "../assets/ColorBar.png";
 import Slider from "./Slider";
 
-const ProductCards = () => {
+const ProductCards = (data) => {
+  const product = data.product;
   return (
     <div className="bg-[#FAFAFA] sm:px-20 px-0">
       <div className="flex items-center sm:justify-start justify-center gap-3 py-10">
@@ -27,10 +28,10 @@ const ProductCards = () => {
         </h4>
       </div>
       <div className="flex justify-start items-start flex-wrap md:flex-nowrap py-6">
-        <Slider />
+        <Slider product={product} />
         <div className="flex flex-col  py-6  sm:px-16 px-10">
           <h3 className="text-slate-800 text-xl font-medium leading-[30px] tracking-wider">
-            Floating Phone
+            {product?.name}
           </h3>
           <div className="flex items-center gap-1 py-4 ">
             <FontAwesomeIcon icon={faStar} className="text-[#F3CD03]" />
@@ -45,23 +46,19 @@ const ProductCards = () => {
           </div>
           <div className="flex flex-col">
             <h4 className=" text-slate-800 text-2xl font-bold leading-loose tracking-wider">
-              $1,139.33
+              {product?.price}
             </h4>
             <div className="flex gap-2">
               <h5 className="text-neutral-500 text-sm font-bold leading-normal tracking-wider">
                 Availability :
               </h5>
               <h5 className="text-sky-500 text-sm font-bold leading-normal tracking-wider">
-                In Stock{" "}
+                {product?.stock > 0 ? "In Stock" : "Out of Stock"}
               </h5>
             </div>
             <div className="py-10">
               <p className="text-zinc-500 text-sm font-normal leading-tight tracking-wider">
-                Met minim Mollie non desert Alamo est sit cliquey dolor{" "}
-                <br className="hidden sm:block" />
-                do met sent. RELIT official consequent door ENIM RELIT Mollie.{" "}
-                <br className="hidden sm:block" />
-                Excitation venial consequent sent nostrum met.
+                {product?.description}
               </p>
             </div>
             <hr></hr>
