@@ -1,7 +1,7 @@
 import img1 from "../assets/filter-icon1.svg";
 import img2 from "../assets/filter-icon2.svg";
 
-const FilterContainer = ({ searchTerm, onFilterChange }) => {
+const FilterContainer = ({ searchTerm, onFilterChange, onSortChange }) => {
   return (
     <div className="flex px-[10%] py-6 items-center justify-between flex-col xl:flex-row gap-4 xl:gap-0">
       <h2 className="text-[#737373] text-sm font-bold">
@@ -33,7 +33,11 @@ const FilterContainer = ({ searchTerm, onFilterChange }) => {
           </button>
         </div>
         <div className=" flex flex-row font-normal text-sm border-light border-[#737373] rounded-md">
-          <select name="filter" id="filter">
+          <select
+            name="filter"
+            id="filter"
+            onChange={(e) => onSortChange(e.target.value)}
+          >
             <option value="Best to Worst">Best to Worst</option>
             <option value="Worst to Best">Worst to Best</option>
             <option value="Highest Price">Highest Price</option>

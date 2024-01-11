@@ -12,6 +12,10 @@ const ProductListPage = () => {
   const handleFilterChange = (search) => {
     setSearchTerm(search);
   };
+  const [sortType, setSortType] = useState("");
+  const handleSortChange = (sort) => {
+    setSortType(sort);
+  };
 
   return (
     <>
@@ -19,10 +23,12 @@ const ProductListPage = () => {
       <LinkContainer />
       <ShopCards />
       <FilterContainer
+        onSortChange={handleSortChange}
+        sortType={sortType}
         searchTerm={searchTerm}
         onFilterChange={handleFilterChange}
       />
-      <ProductListMain searchTerm={searchTerm} />
+      <ProductListMain searchTerm={searchTerm} sortType={sortType} />
       <Client />
       <Footer />
     </>
