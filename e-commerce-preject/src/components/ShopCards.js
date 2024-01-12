@@ -1,17 +1,17 @@
 import { useSelector } from "react-redux";
-const ShopCards = () => {
+const ShopCards = ({ onCategoryChange }) => {
   const categories = useSelector((state) => state.global.categories);
   const sortedCategories = categories.sort((a, b) => b.rating - a.rating);
   const top5Categories = sortedCategories.slice(0, 5);
+  const handleCategoryChange = (category) => {
+    if (onCategoryChange) {
+      onCategoryChange(category);
+    }
+  };
   return (
     <div className="bg-[#FAFAFA] flex gap-2 justify-center  flex-col xl:flex-row pb-8">
       {top5Categories.map((category, index) => (
-        <a
-          href={`/shopping/${
-            category.code.charAt(0) === "e" ? "erkek" : "kadin"
-          }/${category.title}`}
-          key={index}
-        >
+        <a onClick={() => onCategoryChange(category)}>
           <img
             src={category.img}
             alt={`card ${index}`}

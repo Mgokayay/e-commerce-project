@@ -38,10 +38,10 @@ const FilterContainer = ({ searchTerm, onFilterChange, onSortChange }) => {
             id="filter"
             onChange={(e) => onSortChange(e.target.value)}
           >
-            <option value="Best to Worst">Best to Worst</option>
-            <option value="Worst to Best">Worst to Best</option>
-            <option value="Highest Price">Highest Price</option>
-            <option value="Lowest Price">Lowest Price</option>
+            <option value="rating:desc">Best to Worst</option>
+            <option value="rating:asc">Worst to Best</option>
+            <option value="price:desc">Highest Price</option>
+            <option value="price:asc">Lowest Price</option>
           </select>
         </div>
         <button className="text-white bg-[#23A6F0] py-[10px] px-10 rounded">

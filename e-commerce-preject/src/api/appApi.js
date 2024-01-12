@@ -37,10 +37,13 @@ export const fetchCategories = () => {
 //   };
 // };
 
-export const fetchProducts = () => {
+export const fetchProducts = (category, filter, sort) => {
   return async (dispatch) => {
     try {
-      const response = await AxiosInstance.get("/products");
+      const response = await AxiosInstance.get(
+        `/products?category=${category}&filter=${filter}&sort=${sort}`
+      );
+
       dispatch(productFetch(response.data));
     } catch (error) {
       console.error("Error fetching products:", error);
