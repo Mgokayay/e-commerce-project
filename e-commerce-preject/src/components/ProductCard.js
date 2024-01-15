@@ -6,23 +6,7 @@ import { useSelector } from "react-redux";
 const ProductCard = ({ searchTerm, sortType }) => {
   const productList = useSelector((state) => state.products.productList);
   let products = productList ? productList : [];
-  // if (searchTerm && products.length > 0) {
-  //   products = products.filter((p) => {
-  //     return (
-  //       p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //       p.description.toLowerCase().includes(searchTerm.toLowerCase())
-  //     );
-  //   });
-  // }
-  // if (sortType === "Lowest Price") {
-  //   products = products.sort((a, b) => a.price - b.price);
-  // } else if (sortType === "Highest Price") {
-  //   products = products.sort((a, b) => b.price - a.price);
-  // } else if (sortType === "Best to Worst") {
-  //   products = products.sort((a, b) => b.rating - a.rating);
-  // } else if (sortType === "Worst to Best") {
-  //   products = products.sort((a, b) => a.rating - b.rating);
-  // }
+
   return (
     <div className="flex items-center justify-center flex-wrap gap-12">
       {products.map((product, index) => (

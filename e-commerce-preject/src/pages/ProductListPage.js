@@ -33,9 +33,11 @@ const ProductListPage = () => {
   };
   const setQueryString = (category) => {
     // const genderPrefix = category.code.charAt(0) === "e" ? "erkek" : "kadin";
-    let url = `/${categoryType?.title}&filter=${searchTerm}&sort=${sortType}`;
+    if (category) {
+      let url = `/${category?.title}&filter=${searchTerm}&sort=${sortType}`;
 
-    history.push({ search: url });
+      history.push({ search: url });
+    }
   };
 
   return (
