@@ -4,3 +4,8 @@ export const productFetch = (data) => ({
   type: PRODUCT_FETCH,
   payload: data,
 });
+
+export const nextPage = (data) => ({
+  type: "FETCH_MORE",
+  payload: data,
+});
