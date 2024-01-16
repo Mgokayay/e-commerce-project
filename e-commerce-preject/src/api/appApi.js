@@ -3,7 +3,10 @@ import {
   setCategories,
   setRoles,
 } from "../Reducers&Actions/actions/globalAction";
-import { productFetch } from "../Reducers&Actions/actions/productAction";
+import {
+  nextPage,
+  productFetch,
+} from "../Reducers&Actions/actions/productAction";
 import { AxiosInstance } from "./api";
 
 export const fetchRoles = () => {
@@ -45,6 +48,19 @@ export const fetchProducts = (category, filter, sort) => {
       );
 
       dispatch(productFetch(response.data));
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+};
+export const fetchNextPage = (data) => {
+  return async (dispatch) => {
+    try {
+      const response = await AxiosInstance.get("/products", {
+        params: data,
+      });
+
+      dispatch(nextPage(response.data));
     } catch (error) {
       console.error("Error fetching products:", error);
     }
