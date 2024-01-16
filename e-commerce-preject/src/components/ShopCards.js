@@ -11,7 +11,7 @@ const ShopCards = ({ onCategoryChange }) => {
   return (
     <div className="bg-[#FAFAFA] flex gap-2 justify-center  flex-col xl:flex-row pb-8">
       {top5Categories.map((category, index) => (
-        <a onClick={() => onCategoryChange(category)}>
+        <a key={index} onClick={() => onCategoryChange(category)}>
           <img
             src={category.img}
             alt={`card ${index}`}
