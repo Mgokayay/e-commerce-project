@@ -3,7 +3,7 @@ import svg from "../assets/product-colors.svg";
 
 import { useSelector } from "react-redux";
 
-const ProductCard = ({ searchTerm, sortType }) => {
+const ProductCard = () => {
   const productList = useSelector((state) => state.products.productList);
   let products = productList ? productList : [];
 
