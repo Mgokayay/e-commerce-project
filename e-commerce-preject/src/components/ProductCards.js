@@ -10,11 +10,21 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
 import color from "../assets/ColorBar.png";
 import Slider from "./Slider";
+import { useHistory } from "react-router-dom";
+import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
 
 const ProductCards = (data) => {
+  const history = useHistory();
+  const handleGoBack = () => {
+    history.push("/productList");
+  };
+
   const product = data.product;
   return (
     <div className="bg-[#FAFAFA] sm:px-20 px-0">
+      <button className=" pt-8" onClick={handleGoBack}>
+        <ArrowLeftCircleIcon className="h-8 w-8 text-red-500" />
+      </button>
       <div className="flex items-center sm:justify-start justify-center gap-3 py-10">
         <h4 className=" text-slate-800 text-sm font-bold leading-normal tracking-wider">
           Home
