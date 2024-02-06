@@ -49,7 +49,7 @@ const ProductListPage = () => {
       });
   };
   const setQueryString = (category) => {
-    // const genderPrefix = category.code.charAt(0) === "e" ? "erkek" : "kadin";
+    // const genderPrefix = category === "kadin" ? "kadın" : "erkek";
     if (category) {
       let url = `/${category?.title}&filter=${searchTerm}&sort=${sortType}`;
 
