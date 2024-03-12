@@ -6,6 +6,7 @@ import { Carousel2 } from "../components/Carousel2";
 import ProductsInfo from "../components/ProductsInfo";
 import FeaturedPosts from "../layout/FeaturedPosts";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 const HomePage = () => {
   return (

@@ -48,6 +48,7 @@ const ProductListPage = () => {
         setHasMore(false);
       });
   };
+
   const setQueryString = (category) => {
     // const genderPrefix = category === "kadin" ? "kadın" : "erkek";
     if (category) {
