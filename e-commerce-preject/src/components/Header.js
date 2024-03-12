@@ -31,9 +31,14 @@ const Header = () => {
 
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [selectedGender, setSelectedGender] = useState(null);
+  const [isDropdownShopping, setIsDropdownShopping] = useState(false);
 
   const handleDropdownVisibility = (visible) => {
     setDropdownVisible(visible);
+  };
+  const handleDropdownShopping = () => {
+    setIsDropdownShopping(!isDropdownShopping);
+    console.log(isDropdownShopping);
   };
 
   const handleGenderSelect = (gender) => {
@@ -53,6 +58,18 @@ const Header = () => {
   );
 
   const user = useSelector((store) => store.user);
+  const shop = useSelector((store) => store.shop);
+
+  let total = shop.cart
+    .reduce((total, item) => total + item.product.price * item.count, 0)
+    .toFixed(2);
+  //ürün bazında toplam fiyat bilgisi ile uğraşmayı dene
+
+  console.log(shop.cart);
+
+  let totalCount = shop.cart.reduce((total, item) => total + item.count, 0);
+  console.log(totalCount);
+
   return (
     <main className="font-bold">
       <header className="h-[58px] px-[3%] hidden flex-wrap justify-between xl:flex bg-[#252B42] text-white">
@@ -215,10 +232,47 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center gap-2">
-            <Link to="/basket">
+            <button onClick={handleDropdownShopping}>
               <FontAwesomeIcon icon={faCartShopping} />
-            </Link>
-            <p>1</p>
+            </button>
+            {isDropdownShopping && (
+              <div className="z-10 bg-white absolute top-[15%] right-[6%] w-[250px] h-[340px] border-2 overflow-auto">
+                <div className="text-end font-bold py-2 mx-2 border-b-2">
+                  <p>Total: ${total}</p>
+                </div>
+                {shop.cart.map((item) => (
+                  <div
+                    key={item.product.id}
+                    className="flex items-center justify-around text-sm font-medium"
+                  >
+                    <div className="">
+                      <img src={item.product.images[0].url} className="w-14" />
+                    </div>
+                    <div className="w-[140px] flex flex-col gap-2">
+                      <p className="text-black">{item.product.name}</p>
+                      <div className="flex justify-between pr-2">
+                        <p className="font-bold">${item.product.price}</p>
+                        <div className="flex items-center">
+                          <button className="border-2 w-[20px]">-</button>
+                          <p className="text-[#737373] border-y-2 w-4 text-center">
+                            {item.count}
+                          </p>
+                          <button className="border-2 w-[20px]">+</button>
+                          {/* butonlara onClick vereceğim Shopreducera yeni bir action tanımlayacağız onclick içinde dispatch olacak dispatch action atacak reducerı çalıştıracak bir tane eksiltmek için bir tane de artırmak için case oluştur */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                <div className="sticky bottom-0 bg-white py-2 border-t-2">
+                  <button className="sticky bottom-0 left-[30%] border-2 px-2 py-[4px] text-sm">
+                    <Link to="/shopping-cart-page"> Go to Card </Link>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <p>{totalCount}</p>
           </div>
           <div className="flex items-center gap-2">
             <Link to="/favorites">
