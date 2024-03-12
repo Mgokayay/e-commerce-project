@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { loginData } from "./Reducers&Actions/actions/userAction";
 import { AxiosInstance } from "./api/api";
+import ShoppingCartPage from "./pages/ShoppingCartPage";
 function App() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -89,7 +90,10 @@ function App() {
           <SignUpPage />
         </Route>
         <Route path="/login-page" exact>
-          <LoginPage />
+          <ShoppingCartPage />
+        </Route>
+        <Route path="/shopping-cart-page" exact>
+          <ShoppingCartPage />
         </Route>
       </Switch>
 
