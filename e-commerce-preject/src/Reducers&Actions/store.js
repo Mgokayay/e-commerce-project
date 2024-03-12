@@ -8,14 +8,14 @@ import { thunk } from "redux-thunk";
 import globalReducer from "./reducers/globalReducer";
 import { userReducer } from "./reducers/userReducer";
 import { storeReducer } from "./reducers/storeReducer";
-import { shoppincCartReducer } from "./reducers/shoppingCartReducer";
+import { shoppingCartReducer } from "./reducers/shoppingCartReducer";
 import { productReducer } from "./reducers/productReducer";
 
 export const reducers = combineReducers({
   global: globalReducer,
   user: userReducer,
   store: storeReducer,
-  shop: shoppincCartReducer,
+  shop: shoppingCartReducer,
   products: productReducer,
 });
 
