@@ -83,7 +83,25 @@ const ShoppingCartPage = () => {
           ))}
         </div>
         <div className="border-2 w-60 h-60 bg-white shadow-md">
-          order summary
+          <div class="border border-gray-200 rounded-lg p-6 max-w-sm mx-auto">
+            <h2 class="font-bold text-xl mb-4">Order Summary</h2>
+            <div class="flex justify-between items-center mb-4">
+              <p class="text-gray-600">Product Cost</p>
+              <p class="font-bold text-gray-900">$360.00</p>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+              <p class="text-gray-600">Shipping</p>
+              <p class="font-bold text-gray-600">$40.00</p>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+              <p class="text-gray-600">Coupon Code</p>
+              <p class="font-bold text-emerald-500">#APPLIED</p>
+            </div>
+            <div class="flex justify-between items-center">
+              <p class="font-bold text-lg">Subtotal</p>
+              <p class="font-bold text-indigo-600">$400.00</p>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
