@@ -32,6 +32,17 @@ const ShoppingCartPage = () => {
     dispatch(checkedProduct(product));
   };
 
+  let totalProductPrice = shop.cart
+    .filter((item) => item.checked == true)
+    .reduce((total, item) => total + item.product.price * item.count, 0)
+    .toFixed(2);
+
+  const shippingPrice = 40;
+  let totalPrice =
+    totalProductPrice < 200
+      ? parseFloat(totalProductPrice) + shippingPrice
+      : totalProductPrice;
+
   return (
     <>
       <Header />
@@ -83,24 +94,18 @@ const ShoppingCartPage = () => {
           ))}
         </div>
         <div className="border-2 w-60 h-60 bg-white shadow-md">
-          <div class="border border-gray-200 rounded-lg p-6 max-w-sm mx-auto">
-            <h2 class="font-bold text-xl mb-4">Order Summary</h2>
-            <div class="flex justify-between items-center mb-4">
-              <p class="text-gray-600">Product Cost</p>
-              <p class="font-bold text-gray-900">$360.00</p>
-            </div>
-            <div class="flex justify-between items-center mb-4">
-              <p class="text-gray-600">Shipping</p>
-              <p class="font-bold text-gray-600">$40.00</p>
-            </div>
-            <div class="flex justify-between items-center mb-4">
-              <p class="text-gray-600">Coupon Code</p>
-              <p class="font-bold text-emerald-500">#APPLIED</p>
-            </div>
-            <div class="flex justify-between items-center">
-              <p class="font-bold text-lg">Subtotal</p>
-              <p class="font-bold text-indigo-600">$400.00</p>
-            </div>
+          <div>
+            <p>Product Cost</p>
+            <p>${totalProductPrice}</p>
+          </div>
+          <div>
+            <p>Shipping</p>
+            <p>${totalProductPrice < 200 ? shippingPrice : "0"}</p>
+          </div>
+
+          <div>
+            <p>Subtotal</p>
+            <p>${totalPrice}</p>
           </div>
         </div>
       </div>
