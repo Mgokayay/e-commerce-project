@@ -101,7 +101,6 @@ export const shoppingCartReducer = (state = initialCartState, action) => {
         }
         return item;
       });
-      console.log("çalıştı", updatedCartWithCheck);
 
       localStorage.setItem(
         "shoppingCart",
