@@ -72,14 +72,16 @@ const ShoppingCartPage = () => {
                 <div className="flex">
                   <button
                     onClick={() => handleCountDecrease(item.product)}
-                    className=""
+                    className="border-2 w-[20px]"
                   >
                     -
                   </button>
-                  <p className="">{item.count}</p>
+                  <p className="text-[#737373] border-y-2 w-4 text-center">
+                    {item.count}
+                  </p>
                   <button
                     onClick={() => handleCountIncrease(item.product)}
-                    className=""
+                    className="border-2 w-[20px]"
                   >
                     +
                   </button>
