@@ -58,7 +58,7 @@ export const shoppingCartReducer = (state = initialCartState, action) => {
       const decreasedProduct = state.cart.find(
         (item) => item.product.id === action.payload.id
       );
-      console.log("çalıştı");
+
       if (decreasedProduct && decreasedProduct.count > 1) {
         localStorage.setItem(
           "shoppingCart",
