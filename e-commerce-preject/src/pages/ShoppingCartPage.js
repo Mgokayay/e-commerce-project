@@ -14,7 +14,6 @@ import {
 const ShoppingCartPage = () => {
   const shop = useSelector((store) => store.shop);
   const dispatch = useDispatch();
-  console.log("you are here now", shop.cart);
 
   const handleCountIncrease = (product) => {
     dispatch(addToCart(product));
@@ -33,11 +32,10 @@ const ShoppingCartPage = () => {
   };
 
   let totalProductPrice = shop.cart
-    .filter((item) => item.checked == true)
     .reduce((total, item) => total + item.product.price * item.count, 0)
     .toFixed(2);
-
   const shippingPrice = 40;
+
   let totalPrice =
     totalProductPrice < 200
       ? parseFloat(totalProductPrice) + shippingPrice
@@ -95,19 +93,27 @@ const ShoppingCartPage = () => {
             </div>
           ))}
         </div>
-        <div className="border-2 w-60 h-60 bg-white shadow-md">
-          <div>
-            <p>Product Cost</p>
-            <p>${totalProductPrice}</p>
-          </div>
-          <div>
-            <p>Shipping</p>
-            <p>${totalProductPrice < 200 ? shippingPrice : "0"}</p>
-          </div>
+        <div className="border-2 w-60 h-60 bg-white shadow-md flex-col justify-center items-center text-center">
+          <div className="p-6">
+            <div>
+              <p>Product Cost</p>
+              <p>${totalProductPrice}</p>
+            </div>
 
+            <div>
+              <p>Shipping</p>
+              <p>${totalProductPrice < 200 ? shippingPrice : "0"}</p>
+            </div>
+
+            <div>
+              <p>Subtotal</p>
+              <p>${totalPrice}</p>
+            </div>
+          </div>
           <div>
-            <p>Subtotal</p>
-            <p>${totalPrice}</p>
+            <button className="rounded-lg border-2  bg-deep-orange-500 text-white">
+              Order Summary
+            </button>
           </div>
         </div>
       </div>
