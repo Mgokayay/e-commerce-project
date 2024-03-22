@@ -93,7 +93,7 @@ const ShoppingCartPage = () => {
             </div>
           ))}
         </div>
-        <div className="p-6 border border-gray-200 rounded-3xl  group transition-all duration-500 hover:border-gray-400">
+        <div className="p-4 border border-gray-200 rounded-3xl h-80  group transition-all duration-500 hover:border-gray-400">
           <div className="p-6">
             <div className="data  border-b border-gray-200">
               <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">
@@ -114,7 +114,7 @@ const ShoppingCartPage = () => {
             </div>
 
             <div>
-              <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">
+              <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700cd">
                 Subtotal
               </p>
               <p className="font-medium text-lg leading-8 text-gray-900">
@@ -123,7 +123,7 @@ const ShoppingCartPage = () => {
             </div>
           </div>
           <div>
-            <button className="rounded-lg border-2  bg-deep-orange-500 text-white">
+            <button className="rounded-lg border-2 p-2  bg-deep-orange-500 text-white">
               Order Summary
             </button>
           </div>
