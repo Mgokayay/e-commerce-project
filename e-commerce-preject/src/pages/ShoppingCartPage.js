@@ -93,21 +93,33 @@ const ShoppingCartPage = () => {
             </div>
           ))}
         </div>
-        <div className="border-2 w-60 h-60 bg-white shadow-md flex-col justify-center items-center text-center">
+        <div className="p-6 border border-gray-200 rounded-3xl  group transition-all duration-500 hover:border-gray-400">
           <div className="p-6">
-            <div>
-              <p>Product Cost</p>
-              <p>${totalProductPrice}</p>
+            <div className="data  border-b border-gray-200">
+              <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">
+                Product Cost
+              </p>
+              <p className="font-medium text-lg leading-8 text-gray-900">
+                ${totalProductPrice}
+              </p>
+            </div>
+
+            <div className="data  border-b border-gray-200">
+              <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">
+                Shipping
+              </p>
+              <p className="font-medium text-lg leading-8 text-gray-900">
+                ${totalProductPrice < 200 ? shippingPrice : "0"}
+              </p>
             </div>
 
             <div>
-              <p>Shipping</p>
-              <p>${totalProductPrice < 200 ? shippingPrice : "0"}</p>
-            </div>
-
-            <div>
-              <p>Subtotal</p>
-              <p>${totalPrice}</p>
+              <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">
+                Subtotal
+              </p>
+              <p className="font-medium text-lg leading-8 text-gray-900">
+                ${totalPrice}
+              </p>
             </div>
           </div>
           <div>
