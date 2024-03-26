@@ -34,8 +34,11 @@ const Header = () => {
   const [isDropdownShopping, setIsDropdownShopping] = useState(false);
 
   const handleDropdownVisibility = (visible) => {
-    setDropdownVisible(visible);
+    setTimeout(() => {
+      setDropdownVisible(visible);
+    }, 500);
   };
+
   const handleDropdownShopping = () => {
     setIsDropdownShopping(!isDropdownShopping);
     console.log(isDropdownShopping);
@@ -133,7 +136,7 @@ const Header = () => {
             <div
               className="flex items-center relative"
               onMouseEnter={() => handleDropdownVisibility(true)}
-              onMouseLeave={() => handleDropdownVisibility(true)}
+              onMouseLeave={() => handleDropdownVisibility(false)}
             >
               <NavLink href="/productlist">Shop</NavLink>
               {isDropdownVisible && (
